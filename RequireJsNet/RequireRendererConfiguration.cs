@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNet.Mvc.ViewFeatures;
 using RequireJsNet.Configuration;
 using RequireJsNet.Models;
 
@@ -27,7 +25,7 @@ namespace RequireJsNet
 
         public RequireRendererConfiguration()
         {
-            LocaleSelector = helper => System.Threading.Thread.CurrentThread.CurrentUICulture.Name.Split('-')[0];
+            LocaleSelector = helper => "en"; // default the locale to "en"
             ProcessConfig = config => { };
             ProcessOptions = options => { };
         }
@@ -152,7 +150,7 @@ namespace RequireJsNet
         /// <summary>
         /// Gets or sets a function that returns the current locale in short format (ex. "en")
         /// </summary>
-        public Func<HtmlHelper, string> LocaleSelector { get; set; }
+        public Func<IHtmlHelper, string> LocaleSelector { get; set; }
 
         public Action<JsonRequireOutput> ProcessConfig { get; set; }
 

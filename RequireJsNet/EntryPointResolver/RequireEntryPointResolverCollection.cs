@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Web.Mvc;
+using Microsoft.AspNet.Mvc.Rendering;
 using RequireJsNet.EntryPointResolver;
 
 namespace RequireJsNet
