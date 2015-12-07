@@ -1,4 +1,4 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNet.Mvc.Rendering;
 
 namespace RequireJsNet.EntryPointResolver
 {

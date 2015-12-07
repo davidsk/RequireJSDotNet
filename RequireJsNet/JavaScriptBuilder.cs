@@ -6,7 +6,7 @@
 // http://www.gnu.org/licenses/gpl.html
 
 using System.Text;
-using System.Web.Mvc;
+using Microsoft.AspNet.Mvc.Rendering;
 
 namespace RequireJsNet
 {
@@ -24,8 +24,10 @@ namespace RequireJsNet
 
         public string Render()
         {
-            scriptTag.InnerHtml = RenderContent();
-            return scriptTag.ToString(TagRenderMode.Normal);
+            scriptTag.InnerHtml.Clear();
+            scriptTag.InnerHtml.AppendHtml(RenderContent());
+            scriptTag.TagRenderMode = TagRenderMode.Normal;
+            return scriptTag.ToString();
         }
 
         public string RenderContent()
@@ -40,9 +42,11 @@ namespace RequireJsNet
                 scriptTag.MergeAttribute("type", Type);
             }
 
-            scriptTag.InnerHtml = string.Empty;
+            scriptTag.InnerHtml.Clear();
 
-            return scriptTag.ToString(TagRenderMode.Normal);
+            scriptTag.TagRenderMode = TagRenderMode.Normal;
+
+            return scriptTag.ToString();
         }
 
         public void AddAttributesToStatement(string key, string value)

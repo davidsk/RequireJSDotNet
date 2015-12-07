@@ -11,7 +11,10 @@ using RequireJsNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web.Mvc;
+using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNet.Mvc.ViewFeatures;
 
 namespace RequireJsNet
 {
@@ -30,20 +33,20 @@ namespace RequireJsNet
         /// <returns>
         /// The <see cref="MvcHtmlString"/>.
         /// </returns>
-        public static MvcHtmlString RenderRequireJsSetup(
-            this HtmlHelper html,
+        public static HtmlString RenderRequireJsSetup(
+            this IHtmlHelper html,
             RequireRendererConfiguration config)
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             var entryPointPath = html.RequireJsEntryPoint(config.BaseUrl, config.EntryPointRoot);
 
             if (entryPointPath == null)
             {
-                return new MvcHtmlString(string.Empty);
+                return new HtmlString(string.Empty);
             }
 
             if (config.ConfigurationFiles == null || !config.ConfigurationFiles.Any())
@@ -53,7 +56,9 @@ namespace RequireJsNet
 
             var processedConfigs = config.ConfigurationFiles.Select(r =>
             {
-                var resultingPath = html.ViewContext.HttpContext.MapPath(r);
+                var env = (IHostingEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
+
+                var resultingPath = env.MapPath(r);
                 PathHelpers.VerifyFileExists(resultingPath);
                 return resultingPath;
             }).ToList();
@@ -79,8 +84,8 @@ namespace RequireJsNet
                 "require",
                 (object)new[] { entryPointPath.ToString() }));
 
-            return new MvcHtmlString(
-                configBuilder.Render()
+            return new HtmlString(
+                configBuilder.Render() 
                 + Environment.NewLine
                 + requireRootBuilder.Render()
                 + Environment.NewLine
@@ -182,11 +187,11 @@ namespace RequireJsNet
         /// <returns>
         /// The <see cref="MvcHtmlString"/>.
         /// </returns>
-        public static MvcHtmlString RequireJsEntryPoint(this HtmlHelper html, string baseUrl, string root)
+        public static HtmlString RequireJsEntryPoint(this IHtmlHelper html, string baseUrl, string root)
         {
             var result = RequireJsOptions.ResolverCollection.Resolve(html.ViewContext, baseUrl, root);
 
-            return result != null ? new MvcHtmlString(result) : null;
+            return result != null ? new HtmlString(result) : null;
         }
 
         public static Dictionary<string, int> ToJsonDictionary<TEnum>()
@@ -194,8 +199,5 @@ namespace RequireJsNet
             var enumType = typeof(TEnum);
             return Enum.GetNames(enumType).ToDictionary(r => r, r => Convert.ToInt32(Enum.Parse(enumType, r)));
         }
-
-
-        
     }
 }

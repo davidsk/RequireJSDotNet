@@ -8,8 +8,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using Microsoft.AspNet.Http;
 using RequireJsNet.EntryPointResolver;
+using RequireJsNet.Helpers;
 
 namespace RequireJsNet
 {
@@ -32,7 +33,7 @@ namespace RequireJsNet
             ResolverCollection.Add(new DefaultEntryPointResolver());
         }
 
-        public static Dictionary<string, object> GetGlobalOptions(HttpContextBase context)
+        public static Dictionary<string, object> GetGlobalOptions(HttpContext context)
         {
             var page = context.Items[GlobalOptionsKey] as Dictionary<string, object>;
             if (page == null)
@@ -45,10 +46,10 @@ namespace RequireJsNet
 
         public static Dictionary<string, object> GetGlobalOptions()
         {
-            return GetGlobalOptions(new HttpContextWrapper(GetCurrentContext()));
+            return GetGlobalOptions(GetCurrentContext());
         }
 
-        public static Dictionary<string, object> GetPageOptions(HttpContextBase context)
+        public static Dictionary<string, object> GetPageOptions(HttpContext context)
         {
             var page = context.Items[PageOptionsKey] as Dictionary<string, object>;
             if (page == null)
@@ -61,7 +62,7 @@ namespace RequireJsNet
 
         public static Dictionary<string, object> GetPageOptions()
         {
-            return GetPageOptions(new HttpContextWrapper(GetCurrentContext()));
+            return GetPageOptions(GetCurrentContext());
         }
        
 
@@ -169,12 +170,14 @@ namespace RequireJsNet
 
         private static HttpContext GetCurrentContext()
         {
-            if (HttpContext.Current == null)
+            var httpContext = HttpContextHelper.HttpContext;            
+
+            if (httpContext == null)
             {
                 throw new Exception("HttpContext.Current is null. RequireJsNet needs a HttpContext in order to work.");
             }
 
-            return HttpContext.Current;
+            return httpContext;
         }
     }
 }

@@ -8,21 +8,20 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Web;
 
 namespace RequireJsNet.Helpers
 {
     internal static class PathHelpers
     {
-        public static string MapPath(this HttpContextBase context, string path)
-        {
-            if (path.StartsWith("~"))
-            {
-                path = context.Server.MapPath(path);
-            }
+        //public static string MapPath(this HttpContextBase context, string path)
+        //{
+        //    if (path.StartsWith("~"))
+        //    {
+        //        path = context.Server.MapPath(path);
+        //    }
 
-            return path;
-        }
+        //    return path;
+        //}
 
         public static void VerifyFileExists(string path)
         {
