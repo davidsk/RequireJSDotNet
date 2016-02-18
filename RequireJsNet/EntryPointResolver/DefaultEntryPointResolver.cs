@@ -34,7 +34,6 @@ namespace RequireJsNet.EntryPointResolver
                 entryPointRoot = baseUrl;            
             }
 
-
             var resolvedEntryPointRoot = entryPointRoot.StartsWith("~")
                 ? entryPointRoot.Replace("~", virtualAppRoot)
                 : entryPointRoot;
@@ -77,11 +76,11 @@ namespace RequireJsNet.EntryPointResolver
                 foreach (var area in areas)
                 {
                     var entryPoint = string.Format(entryPointTmpl, routingInfo.Area).ToModuleName();
-                    var filePath = Path.Combine(_hostEnv.WebRootPath, _hostEnv.MapPath(resolvedEntryPointRoot + entryPoint + ".js"));
+                    var filePath = _hostEnv.WebRootPath + _hostEnv.MapPath(resolvedEntryPointRoot.Replace(virtualAppRoot, "") + entryPoint + ".js");
 
                     if (File.Exists(filePath))
                     {
-                        var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl);
+                        var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl.Replace(virtualAppRoot, ""));
                         return withBaseUrl ? computedEntry : rootUrl + computedEntry;
                     }
                 }
@@ -136,9 +135,9 @@ namespace RequireJsNet.EntryPointResolver
         private string GetEntryPoint(string filePath, string root)
         {
 
-            var fileName = PathHelpers.GetExactFilePath(filePath);
+            var fileName = RequireJsNet.Helpers.PathHelpers.GetExactFilePath(filePath);
             var folder = _hostEnv.MapPath(root);
-            return PathHelpers.GetRequireRelativePath(folder, fileName);
+            return RequireJsNet.Helpers.PathHelpers.GetRequireRelativePath(folder, fileName);
         }
     }
 }
