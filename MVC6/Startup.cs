@@ -12,12 +12,12 @@ namespace MVC6
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.Map("/application", (app1) => this.Configure1(app1, env, loggerFactory));
+            //app.Map("/application", (app1) => this.Configure1(app1, env, loggerFactory));
+            this.Configure1(app, env, loggerFactory);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,10 +25,17 @@ namespace MVC6
         {
             app.UseIISPlatformHandler();
 
+            app.UseStaticFiles();
+
             app.UseDeveloperExceptionPage();
 
             app.UseMvc(routes =>
             {
+                // Areas support
+                routes.MapRoute(
+                    name: "areaRoute",
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
                 routes.MapRoute(
                     name: "Default",
                     template: "{controller}/{action}/{id?}",

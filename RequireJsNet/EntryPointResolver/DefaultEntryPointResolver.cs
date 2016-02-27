@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Mvc.Infrastructure;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Extensions.PlatformAbstractions;
 
@@ -12,8 +13,6 @@ namespace RequireJsNet.EntryPointResolver
     {
         private const string DefaultArea = "Common";
         private IHostingEnvironment _hostEnv;
-        private IApplicationEnvironment _appEnv;
-        private IUrlHelper _urlHelper;
 
 
         public virtual string Resolve(ViewContext viewContext, string baseUrl, string entryPointRoot)
@@ -21,28 +20,32 @@ namespace RequireJsNet.EntryPointResolver
             var routingInfo = viewContext.GetRoutingInfo();
             var rootUrl = string.Empty;
             var withBaseUrl = true;
-            //var server = viewContext.HttpContext.Server;
 
             _hostEnv = (IHostingEnvironment)viewContext.HttpContext.RequestServices.GetService(typeof (IHostingEnvironment));
-            _appEnv = (IApplicationEnvironment)viewContext.HttpContext.RequestServices.GetService(typeof(IApplicationEnvironment));
-            _urlHelper = (IUrlHelper)viewContext.HttpContext.RequestServices.GetService(typeof(IUrlHelper));
 
             var virtualAppRoot = viewContext.HttpContext.Request.PathBase;
 
-            if (String.IsNullOrWhiteSpace(entryPointRoot))
+            if (string.IsNullOrWhiteSpace(entryPointRoot))
             {
                 entryPointRoot = baseUrl;            
             }
+
+            if (!entryPointRoot.EndsWith("/"))
+            {
+                entryPointRoot = entryPointRoot + "/";
+            }
+
+            // align baseUrl and entryPointUrl to allow comparison
+            var resolvedBaseUrl = baseUrl.StartsWith("~")
+                ? baseUrl.Replace("~", virtualAppRoot)
+                : baseUrl;
 
             var resolvedEntryPointRoot = entryPointRoot.StartsWith("~")
                 ? entryPointRoot.Replace("~", virtualAppRoot)
                 : entryPointRoot;
 
-            var resolvedBaseUrl = baseUrl.StartsWith("~")
-                ? baseUrl.Replace("~", virtualAppRoot)
-                : baseUrl;
 
-
+            // compare entryPoint and baseUrl
             if (resolvedEntryPointRoot != resolvedBaseUrl)
             {
                 // entryPointRoot is different from default.
@@ -50,7 +53,7 @@ namespace RequireJsNet.EntryPointResolver
                 {
                     // entryPointRoot is defined as root relative, do not use with baseUrl
                     withBaseUrl = false;
-                    rootUrl = resolvedEntryPointRoot;
+                    rootUrl = resolvedBaseUrl;
                 }
                 else
                 {
@@ -59,75 +62,43 @@ namespace RequireJsNet.EntryPointResolver
                 }                
             }
 
+            // define entry point location conventions
             var entryPointTemplates = new[]
             {
                 "Controllers/{0}/" + routingInfo.Controller + "/" + routingInfo.Action,
                 "Controllers/{0}/" + routingInfo.Controller + "/" + routingInfo.Controller + "-" + routingInfo.Action
             };
 
+            // define areas to search
             var areas = new[]
             {
                 routingInfo.Area,
                 DefaultArea
             };
 
+            // iterate over the possible locations for the entrypoint script
             foreach (var entryPointTmpl in entryPointTemplates)
             {
                 foreach (var area in areas)
                 {
-                    var entryPoint = string.Format(entryPointTmpl, routingInfo.Area).ToModuleName();
-                    var filePath = _hostEnv.WebRootPath + _hostEnv.MapPath(resolvedEntryPointRoot.Replace(virtualAppRoot, "") + entryPoint + ".js");
+                    // determine entrypoint modulename
+                    var entryPoint = string.Format(entryPointTmpl, area).ToModuleName();
+
+                    // determine entrypoint disk path
+                    var filePath = _hostEnv.WebRootPath + _hostEnv.MapPath(
+                        (virtualAppRoot.HasValue
+                        ? resolvedEntryPointRoot.Replace(virtualAppRoot.Value, "")
+                        : resolvedEntryPointRoot) + entryPoint + ".js");
 
                     if (File.Exists(filePath))
                     {
-                        var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl.Replace(virtualAppRoot, ""));
-                        return withBaseUrl ? computedEntry : rootUrl + computedEntry;
+                        var computedEntry = GetEntryPoint(filePath, (virtualAppRoot.HasValue
+                        ? resolvedBaseUrl.Replace(virtualAppRoot.Value, "")
+                        : resolvedBaseUrl));
+                        return withBaseUrl ? computedEntry : rootUrl + computedEntry + ".js";
                     }
                 }
             }
-
-            // search for controller/action.js in current area
-            //var entryPointTmpl = "Controllers/{0}/" + routingInfo.Controller + "/" + routingInfo.Action;
-
-            //var entryPoint = string.Format(entryPointTmpl, routingInfo.Area).ToModuleName();
-            //var filePath = _hostEnv.MapPath(resolvedEntryPointRoot + entryPoint + ".js");
-
-            //if (File.Exists(filePath))
-            //{
-            //    var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl);
-            //    return withBaseUrl ? computedEntry : rootUrl + computedEntry;
-            //}
-
-            //// search for controller/action.js in common area
-            //entryPoint = string.Format(entryPointTmpl, DefaultArea).ToModuleName();
-            //filePath = _hostEnv.MapPath(entryPointRoot + entryPoint + ".js");
-
-            //if (File.Exists(filePath))
-            //{
-            //    var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl);
-            //    return withBaseUrl ? computedEntry : rootUrl + computedEntry;
-            //}
-
-            //// search for controller/controller-action.js in current area
-            ////entryPointTmpl = "Controllers/{0}/" + routingInfo.Controller + "/" + routingInfo.Controller + "-" + routingInfo.Action;
-            //entryPoint = string.Format(entryPointTmpl, routingInfo.Area).ToModuleName();
-            //filePath = _hostEnv.MapPath(resolvedEntryPointRoot + entryPoint + ".js");
-
-            //if (File.Exists(filePath))
-            //{
-            //    var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl);
-            //    return withBaseUrl ? computedEntry : rootUrl + computedEntry;
-            //}
-
-            //// search for controller/controller-action.js in common area
-            //entryPoint = string.Format(entryPointTmpl, DefaultArea).ToModuleName();
-            //filePath = _hostEnv.MapPath(resolvedEntryPointRoot + entryPoint + ".js");
-
-            //if (File.Exists(filePath))
-            //{
-            //    var computedEntry = GetEntryPoint(filePath, resolvedBaseUrl);
-            //    return withBaseUrl ? computedEntry : rootUrl + computedEntry;
-            //}
 
             return null;
         }
@@ -135,9 +106,9 @@ namespace RequireJsNet.EntryPointResolver
         private string GetEntryPoint(string filePath, string root)
         {
 
-            var fileName = RequireJsNet.Helpers.PathHelpers.GetExactFilePath(filePath);
+            var fileName = PathHelpers.GetExactFilePath(filePath);
             var folder = _hostEnv.MapPath(root);
-            return RequireJsNet.Helpers.PathHelpers.GetRequireRelativePath(folder, fileName);
+            return PathHelpers.GetRequireRelativePath(_hostEnv.WebRootPath + folder, fileName);
         }
     }
 }

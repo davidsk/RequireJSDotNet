@@ -1,3 +1,3 @@
 ﻿require(['jquery', 'domReady'], function() {
-    alert("entry point: home/index");
+    alert("relative entry point: foo/home/index");
 });
