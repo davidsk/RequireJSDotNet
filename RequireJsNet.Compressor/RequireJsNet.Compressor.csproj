@@ -100,12 +100,6 @@
     <None Include="RequireJsNet.Compressor.nuspec" />
     <None Include="RequireJsNet.Compressor.targets" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RequireJsNet\RequireJsNet.csproj">
-      <Project>{EA33DE7B-1269-4000-8C33-F6B0632D1872}</Project>
-      <Name>RequireJsNet</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

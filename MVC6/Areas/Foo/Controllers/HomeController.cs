@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNet.Mvc;
 
-namespace MVC6.Controllers
+namespace MVC6.Foo.Controllers
 {
+    [Area("Foo")]
     public class Home: Controller
     {
         public IActionResult Index()

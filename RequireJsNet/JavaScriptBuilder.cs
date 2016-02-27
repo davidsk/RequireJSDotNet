@@ -6,6 +6,7 @@
 // http://www.gnu.org/licenses/gpl.html
 
 using System.Text;
+using Microsoft.AspNet.Html.Abstractions;
 using Microsoft.AspNet.Mvc.Rendering;
 
 namespace RequireJsNet
@@ -22,12 +23,12 @@ namespace RequireJsNet
 
         public bool TagHasType { get; set; }
 
-        public string Render()
+        public IHtmlContent Render()
         {
             scriptTag.InnerHtml.Clear();
             scriptTag.InnerHtml.AppendHtml(RenderContent());
             scriptTag.TagRenderMode = TagRenderMode.Normal;
-            return scriptTag.ToString();
+            return scriptTag;
         }
 
         public string RenderContent()

@@ -12,9 +12,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.AspNet.Mvc.ViewFeatures;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.AspNet.Html.Abstractions;
+using Microsoft.Extensions.WebEncoders;
+
 
 namespace RequireJsNet
 {
@@ -31,9 +33,9 @@ namespace RequireJsNet
         /// Configuration object for various options.
         /// </param>
         /// <returns>
-        /// The <see cref="MvcHtmlString"/>.
+        /// The <see cref="IHtmlContent"/>.
         /// </returns>
-        public static HtmlString RenderRequireJsSetup(
+        public static object RenderRequireJsSetup(
             this IHtmlHelper html,
             RequireRendererConfiguration config)
         {
@@ -46,7 +48,7 @@ namespace RequireJsNet
 
             if (entryPointPath == null)
             {
-                return new HtmlString(string.Empty);
+                return null;
             }
 
             if (config.ConfigurationFiles == null || !config.ConfigurationFiles.Any())
@@ -57,8 +59,9 @@ namespace RequireJsNet
             var processedConfigs = config.ConfigurationFiles.Select(r =>
             {
                 var env = (IHostingEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
+                var _appEnv = (IApplicationEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IApplicationEnvironment));
 
-                var resultingPath = env.MapPath(r);
+                var resultingPath = env.MapPath(r.Replace("~", _appEnv.ApplicationBasePath));
                 PathHelpers.VerifyFileExists(resultingPath);
                 return resultingPath;
             }).ToList();
@@ -84,12 +87,11 @@ namespace RequireJsNet
                 "require",
                 (object)new[] { entryPointPath.ToString() }));
 
-            return new HtmlString(
-                configBuilder.Render() 
-                + Environment.NewLine
-                + requireRootBuilder.Render()
-                + Environment.NewLine
-                + requireEntryPointBuilder.Render());
+            configBuilder.Render().WriteTo(html.ViewContext.Writer, new HtmlEncoder());
+            requireRootBuilder.Render().WriteTo(html.ViewContext.Writer, new HtmlEncoder());
+            requireEntryPointBuilder.Render().WriteTo(html.ViewContext.Writer, new HtmlEncoder());
+
+            return null;
         }
 
         internal static JsonRequireOptions createOptionsFrom(System.Web.HttpContextBase httpContext, RequireRendererConfiguration config, string locale)
