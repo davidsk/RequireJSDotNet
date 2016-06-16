@@ -11,10 +11,11 @@ using RequireJsNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Mvc.Rendering;
+using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.PlatformAbstractions;
-using Microsoft.AspNet.Html.Abstractions;
 using Microsoft.Extensions.WebEncoders;
 
 
@@ -59,11 +60,10 @@ namespace RequireJsNet
             var processedConfigs = config.ConfigurationFiles.Select(r =>
             {
                 var env = (IHostingEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
-                var _appEnv = (IApplicationEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IApplicationEnvironment));
 
-                var resultingPath = env.MapPath(r.Replace("~", _appEnv.ApplicationBasePath));
-                PathHelpers.VerifyFileExists(resultingPath);
-                return resultingPath;
+                var resultingPath = env.ContentRootFileProvider.GetFileInfo(r.Replace("~/", ""));
+                PathHelpers.VerifyFileExists(resultingPath.PhysicalPath);
+                return resultingPath.PhysicalPath;
             }).ToList();
 
             var resultingConfig = GetCachedOverridenConfig(processedConfigs, config, entryPointPath.ToString());
@@ -72,7 +72,7 @@ namespace RequireJsNet
 
             var outputConfig = new JsonRequireOutput
             {
-                BaseUrl = config.BaseUrl,
+                BaseUrl = config.BaseUrl.Replace("~", html.ViewContext.HttpContext.Request.PathBase),
                 Locale = locale,
                 UrlArgs = config.UrlArgs,
                 WaitSeconds = config.WaitSeconds,
@@ -113,9 +113,9 @@ namespace RequireJsNet
                 "require", 
                 (object)new[] { entryPointPath.ToString() }));
 
-            configBuilder.Render().WriteTo(html.ViewContext.Writer, new HtmlEncoder());
-            requireRootBuilder.Render().WriteTo(html.ViewContext.Writer, new HtmlEncoder());
-            requireEntryPointBuilder.Render().WriteTo(html.ViewContext.Writer, new HtmlEncoder());
+            configBuilder.Render().WriteTo(html.ViewContext.Writer, HtmlEncoder.Default);
+            requireRootBuilder.Render().WriteTo(html.ViewContext.Writer, HtmlEncoder.Default);
+            requireEntryPointBuilder.Render().WriteTo(html.ViewContext.Writer, HtmlEncoder.Default);
 
             return null;
         }

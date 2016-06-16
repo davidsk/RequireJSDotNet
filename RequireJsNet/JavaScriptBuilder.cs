@@ -6,8 +6,8 @@
 // http://www.gnu.org/licenses/gpl.html
 
 using System.Text;
-using Microsoft.AspNet.Html.Abstractions;
-using Microsoft.AspNet.Mvc.Rendering;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RequireJsNet
 {
