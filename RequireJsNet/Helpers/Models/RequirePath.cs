@@ -1,4 +1,4 @@
-﻿// RequireJS.NET
+// RequireJS.NET
 // Copyright VeriTech.io
 // http://veritech.io
 // Dual licensed under the MIT and GPL licenses:

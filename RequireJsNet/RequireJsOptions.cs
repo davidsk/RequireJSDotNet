@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Http;
 using RequireJsNet.EntryPointResolver;
 using RequireJsNet.Helpers;
 

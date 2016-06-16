@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace MVC6.Controllers
 {
@@ -15,6 +15,11 @@ namespace MVC6.Controllers
         }
 
         public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Error()
         {
             return View();
         }

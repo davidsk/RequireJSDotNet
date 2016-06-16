@@ -84,7 +84,7 @@ namespace RequireJsNet.Helpers
             return name;
         }
 
-        public static string GetRelativePath(string filespec, string folder)
+        public static string GetPathBaseRelativePath(string filespec, string folder)
         {
             var pathUri = new Uri(filespec);
 
@@ -101,7 +101,7 @@ namespace RequireJsNet.Helpers
 
         public static string GetRequireRelativePath(string folder, string file)
         {
-            return GetRelativePath(file, folder).ToModuleName();
+            return GetPathBaseRelativePath(file, folder).ToModuleName();
         }
 
         // will return the exact fileName for a supplied file path
