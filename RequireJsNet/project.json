@@ -1,4 +1,8 @@
 ﻿{
+  "name": "RequireJsDotNet.Core",
+  "title": "RequireJsDotNet for .NET Core",
+  "description": "Basic RequireJsDotNet implementation for ASP.NET Core.  Additional features (compressor) are not included",
+  "authors": [ "Keith Davidson" ],
   "version": "1.0.0-*",
   "buildOptions": {
     "emitEntryPoint": false
