@@ -9,18 +9,18 @@
       "version": "1.0.0-rc2-3002702",
       "type": "platform"
     },
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Html.Abstractions": "1.0.0-rc2-final"
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.AspNetCore.Html.Abstractions": "1.0.0"
   },
 
   "tools": {
   },
 
   "frameworks": {
-    "netstandard1.5": {
-      "imports": ["dnxcore50"]
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
     }
   }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6274F294-3BA7-4DEF-A88D-CE3A341689D2}"
 EndProject
@@ -13,8 +13,6 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RequireJsNet", "RequireJsNet\RequireJsNet.xproj", "{97457016-2518-4E97-A8C3-3E54319C78B0}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MVC6", "MVC6\MVC6.xproj", "{74FBCD7C-C5F7-463D-BB1B-C5D0032DEBA9}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SampleMvcCore1", "SampleMvcCore1\SampleMvcCore1.xproj", "{A54107BD-51BB-4894-9D99-42BF50860D54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,10 +28,6 @@ Global
 		{74FBCD7C-C5F7-463D-BB1B-C5D0032DEBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74FBCD7C-C5F7-463D-BB1B-C5D0032DEBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74FBCD7C-C5F7-463D-BB1B-C5D0032DEBA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A54107BD-51BB-4894-9D99-42BF50860D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A54107BD-51BB-4894-9D99-42BF50860D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A54107BD-51BB-4894-9D99-42BF50860D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A54107BD-51BB-4894-9D99-42BF50860D54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +35,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{97457016-2518-4E97-A8C3-3E54319C78B0} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
 		{74FBCD7C-C5F7-463D-BB1B-C5D0032DEBA9} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
-		{A54107BD-51BB-4894-9D99-42BF50860D54} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
 	EndGlobalSection
 EndGlobal
