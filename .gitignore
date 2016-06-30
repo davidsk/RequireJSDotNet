@@ -133,6 +133,9 @@ publish/
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 packages/
 
+# node_modules directory
+**/node_modules/
+
 # Windows Azure Build Output
 csx
 *.build.csdef
