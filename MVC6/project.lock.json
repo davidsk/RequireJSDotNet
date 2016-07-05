@@ -3717,7 +3717,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "ClassLibrary1/1.0.0": {
+      "RequireJsNet/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -3728,10 +3728,10 @@
           "NETStandard.Library": "1.6.0"
         },
         "compile": {
-          "netstandard1.6/ClassLibrary1.dll": {}
+          "netstandard1.6/RequireJsNet.dll": {}
         },
         "runtime": {
-          "netstandard1.6/ClassLibrary1.dll": {}
+          "netstandard1.6/RequireJsNet.dll": {}
         }
       }
     }
@@ -9781,15 +9781,14 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "ClassLibrary1/1.0.0": {
+    "RequireJsNet/1.0.0": {
       "type": "project",
-      "path": "../ClassLibrary1/project.json",
-      "msbuildProject": "../ClassLibrary1/ClassLibrary1.xproj"
+      "path": "../RequireJsNet/project.json",
+      "msbuildProject": "../RequireJsNet/RequireJsNet.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "ClassLibrary1 >= 1.0.0-*",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
       "Microsoft.AspNetCore.Razor.Tools >= 1.0.0-preview2-final",
@@ -9802,7 +9801,8 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.0",
-      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0"
+      "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
+      "RequireJsNet >= 1.0.0"
     ],
     ".NETCoreApp,Version=v1.0": []
   },

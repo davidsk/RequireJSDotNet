@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using ClassLibrary1.EntryPointResolver;
+using RequireJsNet.EntryPointResolver;
 
 namespace MVC6
 {
