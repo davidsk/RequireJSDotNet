@@ -18,6 +18,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ClassLibrary1", "ClassLibra
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApplication1", "WebApplication1\WebApplication1.xproj", "{B862856C-6151-40F8-8DF9-99FF63920DE9}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RequireJsNet.Compressor", "RequireJsNet.Compressor\RequireJsNet.Compressor.xproj", "{9F87B02A-070D-4A45-B4BA-192A21411422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{B862856C-6151-40F8-8DF9-99FF63920DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B862856C-6151-40F8-8DF9-99FF63920DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B862856C-6151-40F8-8DF9-99FF63920DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F87B02A-070D-4A45-B4BA-192A21411422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F87B02A-070D-4A45-B4BA-192A21411422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F87B02A-070D-4A45-B4BA-192A21411422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F87B02A-070D-4A45-B4BA-192A21411422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{74FBCD7C-C5F7-463D-BB1B-C5D0032DEBA9} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
 		{CA9DCA70-BF93-4214-B996-F25C5EAC4D48} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
 		{B862856C-6151-40F8-8DF9-99FF63920DE9} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
+		{9F87B02A-070D-4A45-B4BA-192A21411422} = {6274F294-3BA7-4DEF-A88D-CE3A341689D2}
 	EndGlobalSection
 EndGlobal
