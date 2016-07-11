@@ -1,0 +1,17 @@
+{
+  "buildOptions": {
+    "emitEntryPoint": true
+   },
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "EcmaScript.Net": "1.0.1.0",
+        "Jint": "2.5.0",
+        "YUICompressor.NET": "2.7.0.0"
+      }
+    }
+  },
+  "dependencies": {
+    "RequireJsNet": "1.0.0-*"
+  }
+}

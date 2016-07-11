@@ -1,0 +1,16 @@
+﻿{
+  "buildOptions": {
+    "emitEntryPoint": true
+   },
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "BForms.MVC": "1.0.0.34",
+        "DocumentFormat.OpenXml": "2.5",
+        "Jint": "2.5.0",
+        "Newtonsoft.Json": "7.0.1",
+        "RequireJsNet": "1.0.7.0"
+      }
+    }
+  }
+}

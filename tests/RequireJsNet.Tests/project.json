@@ -1,0 +1,13 @@
+﻿{
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "Newtonsoft.Json": "7.0.1",
+        "xunit": "1.9.2"
+      }
+    }
+  }
+}

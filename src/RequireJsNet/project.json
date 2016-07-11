@@ -1,0 +1,13 @@
+﻿{
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "Microsoft.AspNet.Mvc": "4.0.30506.0",
+        "Microsoft.AspNet.Razor": "2.0.20710.0",
+        "Microsoft.AspNet.WebPages": "2.0.20710.0",
+        "Microsoft.Web.Infrastructure": "1.0.0.0",
+        "Newtonsoft.Json": "7.0.1"
+      }
+    }
+  }
+}

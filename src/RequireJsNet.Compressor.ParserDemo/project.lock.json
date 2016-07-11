@@ -1,0 +1,372 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "BForms.MVC/1.0.0.34": {
+        "type": "package",
+        "dependencies": {
+          "DocumentFormat.OpenXml": "2.5.0",
+          "Newtonsoft.Json": "5.0.8",
+          "RequireJsNet": "1.0.7"
+        },
+        "compile": {
+          "lib/net45/BForms.dll": {}
+        },
+        "runtime": {
+          "lib/net45/BForms.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/DocumentFormat.OpenXml.dll": {}
+        },
+        "runtime": {
+          "lib/DocumentFormat.OpenXml.dll": {}
+        }
+      },
+      "Jint/2.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+wpa81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+wpa81+wp80/Jint.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Mvc/4.0.30506": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "2.0.20710",
+          "Microsoft.AspNet.WebPages": "2.0.20710"
+        },
+        "compile": {
+          "lib/net40/System.Web.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Mvc.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Razor/2.0.20710": {
+        "type": "package",
+        "compile": {
+          "lib/net40/System.Web.Razor.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/2.0.20710": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "[2.0.20710, 2.1.0)",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "lib/net40/System.Web.Helpers.dll": {},
+          "lib/net40/System.Web.WebPages.Deployment.dll": {},
+          "lib/net40/System.Web.WebPages.Razor.dll": {},
+          "lib/net40/System.Web.WebPages.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Helpers.dll": {},
+          "lib/net40/System.Web.WebPages.Deployment.dll": {},
+          "lib/net40/System.Web.WebPages.Razor.dll": {},
+          "lib/net40/System.Web.WebPages.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        }
+      },
+      "Newtonsoft.Json/7.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RequireJsNet/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "4.0.30506",
+          "Microsoft.AspNet.Razor": "2.0.20710",
+          "Microsoft.AspNet.WebPages": "2.0.20710",
+          "Microsoft.Web.Infrastructure": "1.0.0",
+          "Newtonsoft.Json": "7.0.1"
+        },
+        "compile": {
+          "net451/RequireJsNet.dll": {}
+        },
+        "runtime": {
+          "net451/RequireJsNet.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BForms.MVC/1.0.0.34": {
+      "sha512": "zzS1XvSdsyDj4EeTAvFa1/5eAV0O0ATUTRtDRe8Rvj5Gr6r2uC8ME5BgHACeaLEMu6BWiQHhbN+q4JeKOOdP6w==",
+      "type": "package",
+      "path": "BForms.MVC/1.0.0.34",
+      "files": [
+        "BForms.MVC.1.0.0.34.nupkg.sha512",
+        "BForms.MVC.nuspec",
+        "Content/Scripts/BForms/Bundles/css/stylesheets.css",
+        "Content/Scripts/BForms/Bundles/fonts/glyphicons-halflings-regular.eot",
+        "Content/Scripts/BForms/Bundles/fonts/glyphicons-halflings-regular.svg",
+        "Content/Scripts/BForms/Bundles/fonts/glyphicons-halflings-regular.ttf",
+        "Content/Scripts/BForms/Bundles/fonts/glyphicons-halflings-regular.woff",
+        "Content/Scripts/BForms/Bundles/images/bg-user.png",
+        "Content/Scripts/BForms/Bundles/images/edit-pencil.gif",
+        "Content/Scripts/BForms/Bundles/images/grippy.png",
+        "Content/Scripts/BForms/Bundles/images/icn-arr-down.png",
+        "Content/Scripts/BForms/Bundles/images/icn-arr-left.png",
+        "Content/Scripts/BForms/Bundles/images/icn-arr-right.png",
+        "Content/Scripts/BForms/Bundles/images/icn-arr-up.png",
+        "Content/Scripts/BForms/Bundles/images/icn-calendar.png",
+        "Content/Scripts/BForms/Bundles/images/icn-down_arrow-small.png",
+        "Content/Scripts/BForms/Bundles/images/icn-grippy.png",
+        "Content/Scripts/BForms/Bundles/images/icn-order_down.png",
+        "Content/Scripts/BForms/Bundles/images/icn-order_up.png",
+        "Content/Scripts/BForms/Bundles/images/icn-remove.png",
+        "Content/Scripts/BForms/Bundles/images/icn-right_arrow-small.png",
+        "Content/Scripts/BForms/Bundles/images/icn-time.png",
+        "Content/Scripts/BForms/Bundles/images/preloader-small.gif",
+        "Content/Scripts/BForms/Bundles/images/preloader.gif",
+        "Content/Scripts/BForms/Bundles/images/preloader_16x16.gif",
+        "Content/Scripts/BForms/Bundles/images/select2-spinner.gif",
+        "Content/Scripts/BForms/Bundles/images/select2.png",
+        "Content/Scripts/BForms/Bundles/images/select2x2.png",
+        "Content/Scripts/BForms/Bundles/js/components.js",
+        "Content/Scripts/BForms/Bundles/js/iefix.js",
+        "Content/Scripts/BForms/Bundles/js/plugins.js",
+        "Content/Scripts/BForms/Bundles/js/widgets.js",
+        "Content/Scripts/BForms/Components/Amplify/amplify.js",
+        "Content/Scripts/BForms/Components/Bootstrap/css/bootstrap.css",
+        "Content/Scripts/BForms/Components/Bootstrap/fonts/glyphicons-halflings-regular.eot",
+        "Content/Scripts/BForms/Components/Bootstrap/fonts/glyphicons-halflings-regular.svg",
+        "Content/Scripts/BForms/Components/Bootstrap/fonts/glyphicons-halflings-regular.ttf",
+        "Content/Scripts/BForms/Components/Bootstrap/fonts/glyphicons-halflings-regular.woff",
+        "Content/Scripts/BForms/Components/Bootstrap/js/bootstrap.js",
+        "Content/Scripts/BForms/Components/FileUpload/jquery.fileupload-process.js",
+        "Content/Scripts/BForms/Components/FileUpload/jquery.fileupload-validate.js",
+        "Content/Scripts/BForms/Components/FileUpload/jquery.fileupload.js",
+        "Content/Scripts/BForms/Components/FileUpload/jquery.iframe-transport.js",
+        "Content/Scripts/BForms/Components/Gremlins/gremlins.min.js",
+        "Content/Scripts/BForms/Components/HistoryJS/jquery.history.js",
+        "Content/Scripts/BForms/Components/Html5shiv/html5shiv.js",
+        "Content/Scripts/BForms/Components/ICanHaz/ICanHaz.js",
+        "Content/Scripts/BForms/Components/ICanHaz/singleton-ich.js",
+        "Content/Scripts/BForms/Components/NestedSortable/jquery.mjs.nestedSortable.js",
+        "Content/Scripts/BForms/Components/PlaceholderShim/jquery.html5-placeholder-shim.js",
+        "Content/Scripts/BForms/Components/RequireJS/depend.js",
+        "Content/Scripts/BForms/Components/RequireJS/i18n.js",
+        "Content/Scripts/BForms/Components/RequireJS/require.js",
+        "Content/Scripts/BForms/Components/RequireJS/text.js",
+        "Content/Scripts/BForms/Components/Respond/respond.js",
+        "Content/Scripts/BForms/Components/SelectorSet/jquery.selector-set.js",
+        "Content/Scripts/BForms/Components/SelectorSet/selector-set.js",
+        "Content/Scripts/BForms/Components/jQuery-ui/jquery-ui.core.js",
+        "Content/Scripts/BForms/Components/jQuery/jquery-migrate.js",
+        "Content/Scripts/BForms/Components/jQuery/jquery.js",
+        "Content/Scripts/BForms/Images/bg-user.png",
+        "Content/Scripts/BForms/Images/icn-down_arrow-small.png",
+        "Content/Scripts/BForms/Images/icn-grippy.png",
+        "Content/Scripts/BForms/Images/icn-order_down.png",
+        "Content/Scripts/BForms/Images/icn-order_up.png",
+        "Content/Scripts/BForms/Images/icn-right_arrow-small.png",
+        "Content/Scripts/BForms/Images/preloader-small.gif",
+        "Content/Scripts/BForms/Images/preloader.gif",
+        "Content/Scripts/BForms/Plugins/CheckBoxList/bforms.checklist.js",
+        "Content/Scripts/BForms/Plugins/Datepicker/css/bforms.datepicker.css",
+        "Content/Scripts/BForms/Plugins/Datepicker/css/bforms.datepicker.scss",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-arr-down.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-arr-left.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-arr-right.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-arr-up.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-calendar.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-remove.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/images/icn-time.png",
+        "Content/Scripts/BForms/Plugins/Datepicker/js/bforms.datepicker.js",
+        "Content/Scripts/BForms/Plugins/Datepicker/js/bforms.datepicker.range.js",
+        "Content/Scripts/BForms/Plugins/Datepicker/js/bforms.datepicker.tmpl.js",
+        "Content/Scripts/BForms/Plugins/Datepicker/js/i18n/lang.bundle.js",
+        "Content/Scripts/BForms/Plugins/Datepicker/js/lib/moment.isocalendar.js",
+        "Content/Scripts/BForms/Plugins/Datepicker/js/lib/moment.js",
+        "Content/Scripts/BForms/Plugins/NavScroll/bforms.navScroll.js",
+        "Content/Scripts/BForms/Plugins/RadioButtonList/bforms.radiolist.js",
+        "Content/Scripts/BForms/Plugins/Rangepicker/css/bforms.rangepicker.css",
+        "Content/Scripts/BForms/Plugins/Rangepicker/css/bforms.rangepicker.min.css",
+        "Content/Scripts/BForms/Plugins/Rangepicker/css/bforms.rangepicker.scss",
+        "Content/Scripts/BForms/Plugins/Rangepicker/images/icn-arr-down.png",
+        "Content/Scripts/BForms/Plugins/Rangepicker/images/icn-arr-up.png",
+        "Content/Scripts/BForms/Plugins/Rangepicker/images/icn-remove.png",
+        "Content/Scripts/BForms/Plugins/Rangepicker/js/bforms.rangepicker.js",
+        "Content/Scripts/BForms/Plugins/Select2/css/select2.css",
+        "Content/Scripts/BForms/Plugins/Select2/images/select2-spinner.gif",
+        "Content/Scripts/BForms/Plugins/Select2/images/select2.png",
+        "Content/Scripts/BForms/Plugins/Select2/images/select2x2.png",
+        "Content/Scripts/BForms/Plugins/Select2/js/bforms.select2.js",
+        "Content/Scripts/BForms/Plugins/Select2/js/i18n/select2-ro.js",
+        "Content/Scripts/BForms/Plugins/Select2/js/select2.js",
+        "Content/Scripts/BForms/Plugins/Typeahead/bforms.typeahead.js",
+        "Content/Scripts/BForms/Plugins/Typeahead/typeahead.js",
+        "Content/Scripts/BForms/Plugins/UI/bforms.extensions.js",
+        "Content/Scripts/BForms/Plugins/UI/bforms.initUI.js",
+        "Content/Scripts/BForms/Plugins/UI/bforms.resetInput.js",
+        "Content/Scripts/BForms/Plugins/Validation/bforms.validate.js",
+        "Content/Scripts/BForms/Plugins/Validation/bforms.validate.unobtrusive.js",
+        "Content/Scripts/BForms/Plugins/Validation/i18n/bforms.validate-ro.js",
+        "Content/Scripts/BForms/RequireJS.Release.config",
+        "Content/Scripts/BForms/RequireJS.config",
+        "Content/Scripts/BForms/Stylesheets/bforms.core.css",
+        "Content/Scripts/BForms/Stylesheets/bforms.core.scss",
+        "Content/Scripts/BForms/Stylesheets/bforms.grid.css",
+        "Content/Scripts/BForms/Stylesheets/bforms.grid.scss",
+        "Content/Scripts/BForms/Stylesheets/bforms.groupeditor.css",
+        "Content/Scripts/BForms/Stylesheets/bforms.groupeditor.min.css",
+        "Content/Scripts/BForms/Stylesheets/bforms.groupeditor.scss",
+        "Content/Scripts/BForms/Stylesheets/bforms.pager.css",
+        "Content/Scripts/BForms/Stylesheets/bforms.pager.scss",
+        "Content/Scripts/BForms/Widgets/FileUpload/bforms.fileUpload.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.editable.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.form.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.grid.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.pager.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.toolbar.add.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.toolbar.advancedSearch.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.toolbar.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.toolbar.order.js",
+        "Content/Scripts/BForms/Widgets/Grid/js/bforms.toolbar.quickSearch.js",
+        "Content/Scripts/BForms/Widgets/GroupEditor/bforms.groupEditor.js",
+        "Content/Scripts/BForms/Widgets/InlineQuestion/bforms.inlineQuestion.js",
+        "Content/Scripts/BForms/Widgets/Panel/bforms.panel.js",
+        "Content/Scripts/BForms/Widgets/Sortable/bforms.sortable.js",
+        "Content/Scripts/BForms/Widgets/Taglist/bforms.taglist.js",
+        "Content/Scripts/BForms/Widgets/Utils/bforms.ajax.js",
+        "Content/Scripts/BForms/Widgets/Utils/bforms.namespace.js",
+        "Content/Scripts/BForms/Widgets/Utils/bforms.themeSelect.js",
+        "lib/net45/BForms.XML",
+        "lib/net45/BForms.dll"
+      ]
+    },
+    "DocumentFormat.OpenXml/2.5.0": {
+      "sha512": "H5jnox0hcLwzAjrpNqDPIItjh7dplF1kk1z8LatpI2h75wBgps1MepEttJFKs7xedQReCMHA0tGpNI0H2B+Mrg==",
+      "type": "package",
+      "path": "DocumentFormat.OpenXml/2.5.0",
+      "files": [
+        "DocumentFormat.OpenXml.2.5.0.nupkg.sha512",
+        "DocumentFormat.OpenXml.nuspec",
+        "lib/DocumentFormat.OpenXml.dll"
+      ]
+    },
+    "Jint/2.5.0": {
+      "sha512": "PJaRbZG6u8YvHP+Y1juHeqZ1/9+3ZWcYyS581r0ZLv8gDB23iPQxuDYWLz7jutVpHmyKepCgEcimdr3FqjAvuQ==",
+      "type": "package",
+      "path": "Jint/2.5.0",
+      "files": [
+        "Jint.2.5.0.nupkg.sha512",
+        "Jint.nuspec",
+        "lib/portable-net40+sl50+win+wpa81+wp80/Jint.dll"
+      ]
+    },
+    "Microsoft.AspNet.Mvc/4.0.30506": {
+      "sha512": "zuQ/kRdHvVYb8oB3TwgMm7VHJ6FPAM7CizQ1FJ9vuHI1uaAMHKfKWJ/GvC8AhYPJuK+i8Q6RZnxic4BnWik18A==",
+      "type": "package",
+      "path": "Microsoft.AspNet.Mvc/4.0.30506",
+      "files": [
+        "Microsoft.AspNet.Mvc.4.0.30506.nupkg.sha512",
+        "Microsoft.AspNet.Mvc.nuspec",
+        "lib/net40/System.Web.Mvc.dll",
+        "lib/net40/System.Web.Mvc.xml"
+      ]
+    },
+    "Microsoft.AspNet.Razor/2.0.20710": {
+      "sha512": "JkaLdzjXnjcd8JAaAAtahMtqORdBfX2pOlVdv7khq2hKBLqjdP+5q2LVLmbLecFGxoW9inDNjZKvwdVuiwFbZg==",
+      "type": "package",
+      "path": "Microsoft.AspNet.Razor/2.0.20710",
+      "files": [
+        "Microsoft.AspNet.Razor.2.0.20710.nupkg.sha512",
+        "Microsoft.AspNet.Razor.nuspec",
+        "lib/net40/System.Web.Razor.dll",
+        "lib/net40/System.Web.Razor.xml"
+      ]
+    },
+    "Microsoft.AspNet.WebPages/2.0.20710": {
+      "sha512": "bpWbVKW0RpM/XtTwZL7pjhuVqpaB/cHutR7W4YXLIXFMHHXilqzVxpFmyzwoIZVO1xmSdoelbDRBncIA5D24EA==",
+      "type": "package",
+      "path": "Microsoft.AspNet.WebPages/2.0.20710",
+      "files": [
+        "Microsoft.AspNet.WebPages.2.0.20710.nupkg.sha512",
+        "Microsoft.AspNet.WebPages.nuspec",
+        "lib/net40/System.Web.Helpers.dll",
+        "lib/net40/System.Web.Helpers.xml",
+        "lib/net40/System.Web.WebPages.Deployment.dll",
+        "lib/net40/System.Web.WebPages.Deployment.xml",
+        "lib/net40/System.Web.WebPages.Razor.dll",
+        "lib/net40/System.Web.WebPages.Razor.xml",
+        "lib/net40/System.Web.WebPages.dll",
+        "lib/net40/System.Web.WebPages.xml"
+      ]
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "sha512": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "type": "package",
+      "path": "Microsoft.Web.Infrastructure/1.0.0",
+      "files": [
+        "Microsoft.Web.Infrastructure.1.0.0.nupkg.sha512",
+        "Microsoft.Web.Infrastructure.nuspec",
+        "lib/net40/Microsoft.Web.Infrastructure.dll"
+      ]
+    },
+    "Newtonsoft.Json/7.0.1": {
+      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
+      "type": "package",
+      "path": "Newtonsoft.Json/7.0.1",
+      "files": [
+        "Newtonsoft.Json.7.0.1.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "tools/install.ps1"
+      ]
+    },
+    "RequireJsNet/1.0.0": {
+      "type": "project",
+      "path": "../RequireJsNet/project.json",
+      "msbuildProject": "../RequireJsNet/RequireJsNet.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [],
+    ".NETFramework,Version=v4.5.1": [
+      "BForms.MVC >= 1.0.0.34",
+      "DocumentFormat.OpenXml >= 2.5.0",
+      "Jint >= 2.5.0",
+      "Newtonsoft.Json >= 7.0.1",
+      "RequireJsNet >= 1.0.7"
+    ]
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
+}

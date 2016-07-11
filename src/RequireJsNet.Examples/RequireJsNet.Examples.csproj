@@ -209,16 +209,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RequireJsNet.Compressor\RequireJsNet.Compressor.csproj">
-      <Project>{27fbcfc2-9ad7-4042-bc47-0a61b8078264}</Project>
-      <Name>RequireJsNet.Compressor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RequireJsNet\RequireJsNet.csproj">
-      <Project>{ea33de7b-1269-4000-8c33-f6b0632d1872}</Project>
-      <Name>RequireJsNet</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
