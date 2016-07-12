@@ -26,6 +26,15 @@
           "lib/DocumentFormat.OpenXml.dll": {}
         }
       },
+      "EcmaScript.Net/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net20/EcmaScript.NET.dll": {}
+        },
+        "runtime": {
+          "lib/net20/EcmaScript.NET.dll": {}
+        }
+      },
       "Jint/2.5.0": {
         "type": "package",
         "compile": {
@@ -94,6 +103,18 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "YUICompressor.NET/2.7.0": {
+        "type": "package",
+        "dependencies": {
+          "EcmaScript.Net": "1.0.1"
+        },
+        "compile": {
+          "lib/NET20/Yahoo.Yui.Compressor.dll": {}
+        },
+        "runtime": {
+          "lib/NET20/Yahoo.Yui.Compressor.dll": {}
+        }
+      },
       "RequireJsNet/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
@@ -104,11 +125,38 @@
           "Microsoft.Web.Infrastructure": "1.0.0",
           "Newtonsoft.Json": "7.0.1"
         },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Abstractions",
+          "System.Xml",
+          "System.Xml.Linq",
+          "System.Xml.XmlSerializer"
+        ],
         "compile": {
           "net451/RequireJsNet.dll": {}
         },
         "runtime": {
           "net451/RequireJsNet.dll": {}
+        }
+      },
+      "RequireJsNet.Compressor/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "EcmaScript.Net": "1.0.1",
+          "Jint": "2.5.0",
+          "RequireJsNet": "1.0.0",
+          "YUICompressor.NET": "2.7.0"
+        },
+        "frameworkAssemblies": [
+          "Microsoft.Build.Framework",
+          "Microsoft.Build.Utilities.v4.0"
+        ],
+        "compile": {
+          "net451/RequireJsNet.Compressor.dll": {}
+        },
+        "runtime": {
+          "net451/RequireJsNet.Compressor.dll": {}
         }
       }
     }
@@ -270,6 +318,16 @@
         "lib/DocumentFormat.OpenXml.dll"
       ]
     },
+    "EcmaScript.Net/1.0.1": {
+      "sha512": "6U09fonPEr/ONxkJFZSjv/auSpqvw/IGebcRW+9sr7F82nOaRxfpzmN2wuz7Hy/Tr1wcR/hsbTk1j9JNlzRxHg==",
+      "type": "package",
+      "path": "EcmaScript.Net/1.0.1",
+      "files": [
+        "EcmaScript.Net.1.0.1.nupkg.sha512",
+        "EcmaScript.Net.nuspec",
+        "lib/net20/EcmaScript.NET.dll"
+      ]
+    },
     "Jint/2.5.0": {
       "sha512": "PJaRbZG6u8YvHP+Y1juHeqZ1/9+3ZWcYyS581r0ZLv8gDB23iPQxuDYWLz7jutVpHmyKepCgEcimdr3FqjAvuQ==",
       "type": "package",
@@ -351,20 +409,38 @@
         "tools/install.ps1"
       ]
     },
+    "YUICompressor.NET/2.7.0": {
+      "sha512": "G29jACVTLmxXtNcyAxd5MLdKpB+6BYN0gokKRLnm54dRJ/pjuCUTgJhAhqYDdYSttAgAxPt/BjG1dXn+2BKQHw==",
+      "type": "package",
+      "path": "YUICompressor.NET/2.7.0",
+      "files": [
+        "New BSD License.txt",
+        "YUICompressor.NET.2.7.0.nupkg.sha512",
+        "YUICompressor.NET.nuspec",
+        "lib/NET20/Yahoo.Yui.Compressor.dll",
+        "readme.txt"
+      ]
+    },
     "RequireJsNet/1.0.0": {
       "type": "project",
       "path": "../RequireJsNet/project.json",
       "msbuildProject": "../RequireJsNet/RequireJsNet.xproj"
+    },
+    "RequireJsNet.Compressor/1.0.0": {
+      "type": "project",
+      "path": "../RequireJsNet.Compressor/project.json",
+      "msbuildProject": "../RequireJsNet.Compressor/RequireJsNet.Compressor.xproj"
     }
   },
   "projectFileDependencyGroups": {
-    "": [],
+    "": [
+      "RequireJsNet.Compressor >= 1.0.0-*"
+    ],
     ".NETFramework,Version=v4.5.1": [
       "BForms.MVC >= 1.0.0.34",
       "DocumentFormat.OpenXml >= 2.5.0",
       "Jint >= 2.5.0",
-      "Newtonsoft.Json >= 7.0.1",
-      "RequireJsNet >= 1.0.7"
+      "Newtonsoft.Json >= 7.0.1"
     ]
   },
   "tools": {},

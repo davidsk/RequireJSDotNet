@@ -1,6 +1,6 @@
 ﻿{
   "buildOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": false
    },
   "frameworks": {
     "net451": {

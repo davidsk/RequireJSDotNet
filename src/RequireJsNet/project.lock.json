@@ -144,7 +144,12 @@
       "Microsoft.AspNet.Razor >= 2.0.20710",
       "Microsoft.AspNet.WebPages >= 2.0.20710",
       "Microsoft.Web.Infrastructure >= 1.0.0",
-      "Newtonsoft.Json >= 7.0.1"
+      "Newtonsoft.Json >= 7.0.1",
+      "System.Web >= 4.0.0",
+      "System.Web.Abstractions >= 4.0.0",
+      "System.Xml >= 4.0.0",
+      "System.Xml.Linq >= 4.0.0",
+      "System.Xml.XmlSerializer >= 4.0.0"
     ]
   },
   "tools": {},

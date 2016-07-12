@@ -8,9 +8,11 @@
         "BForms.MVC": "1.0.0.34",
         "DocumentFormat.OpenXml": "2.5",
         "Jint": "2.5.0",
-        "Newtonsoft.Json": "7.0.1",
-        "RequireJsNet": "1.0.7.0"
+        "Newtonsoft.Json": "7.0.1"
       }
     }
+  },
+  "dependencies": {
+    "RequireJsNet.Compressor": "1.0.0-*"
   }
 }

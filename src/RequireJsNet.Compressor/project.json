@@ -1,6 +1,6 @@
 {
   "buildOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": false
    },
   "frameworks": {
     "net451": {
@@ -8,6 +8,10 @@
         "EcmaScript.Net": "1.0.1.0",
         "Jint": "2.5.0",
         "YUICompressor.NET": "2.7.0.0"
+      },
+      "frameworkAssemblies": {
+        "Microsoft.Build.Framework": "4.0.0.0",
+        "Microsoft.Build.Utilities.v4.0": "4.0.0.0"
       }
     }
   },

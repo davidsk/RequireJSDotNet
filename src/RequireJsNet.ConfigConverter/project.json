@@ -1,9 +1,12 @@
-﻿{
+{
   "buildOptions": {
     "emitEntryPoint": true
    },
   "frameworks": {
     "net451": {
     }
-  }
+  },
+"dependencies": {
+"RequireJsNet": "1.0.0-*"
+}
 }

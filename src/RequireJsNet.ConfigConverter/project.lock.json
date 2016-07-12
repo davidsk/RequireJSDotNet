@@ -2,11 +2,174 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETFramework,Version=v4.5.1": {}
+    ".NETFramework,Version=v4.5.1": {
+      "Microsoft.AspNet.Mvc/4.0.30506": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "2.0.20710",
+          "Microsoft.AspNet.WebPages": "2.0.20710"
+        },
+        "compile": {
+          "lib/net40/System.Web.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Mvc.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Razor/2.0.20710": {
+        "type": "package",
+        "compile": {
+          "lib/net40/System.Web.Razor.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/2.0.20710": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "[2.0.20710, 2.1.0)",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "lib/net40/System.Web.Helpers.dll": {},
+          "lib/net40/System.Web.WebPages.Deployment.dll": {},
+          "lib/net40/System.Web.WebPages.Razor.dll": {},
+          "lib/net40/System.Web.WebPages.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Web.Helpers.dll": {},
+          "lib/net40/System.Web.WebPages.Deployment.dll": {},
+          "lib/net40/System.Web.WebPages.Razor.dll": {},
+          "lib/net40/System.Web.WebPages.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        }
+      },
+      "Newtonsoft.Json/7.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "RequireJsNet/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "4.0.30506",
+          "Microsoft.AspNet.Razor": "2.0.20710",
+          "Microsoft.AspNet.WebPages": "2.0.20710",
+          "Microsoft.Web.Infrastructure": "1.0.0",
+          "Newtonsoft.Json": "7.0.1"
+        },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Abstractions",
+          "System.Xml",
+          "System.Xml.Linq",
+          "System.Xml.XmlSerializer"
+        ],
+        "compile": {
+          "net451/RequireJsNet.dll": {}
+        },
+        "runtime": {
+          "net451/RequireJsNet.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Microsoft.AspNet.Mvc/4.0.30506": {
+      "sha512": "zuQ/kRdHvVYb8oB3TwgMm7VHJ6FPAM7CizQ1FJ9vuHI1uaAMHKfKWJ/GvC8AhYPJuK+i8Q6RZnxic4BnWik18A==",
+      "type": "package",
+      "path": "Microsoft.AspNet.Mvc/4.0.30506",
+      "files": [
+        "Microsoft.AspNet.Mvc.4.0.30506.nupkg.sha512",
+        "Microsoft.AspNet.Mvc.nuspec",
+        "lib/net40/System.Web.Mvc.dll",
+        "lib/net40/System.Web.Mvc.xml"
+      ]
+    },
+    "Microsoft.AspNet.Razor/2.0.20710": {
+      "sha512": "JkaLdzjXnjcd8JAaAAtahMtqORdBfX2pOlVdv7khq2hKBLqjdP+5q2LVLmbLecFGxoW9inDNjZKvwdVuiwFbZg==",
+      "type": "package",
+      "path": "Microsoft.AspNet.Razor/2.0.20710",
+      "files": [
+        "Microsoft.AspNet.Razor.2.0.20710.nupkg.sha512",
+        "Microsoft.AspNet.Razor.nuspec",
+        "lib/net40/System.Web.Razor.dll",
+        "lib/net40/System.Web.Razor.xml"
+      ]
+    },
+    "Microsoft.AspNet.WebPages/2.0.20710": {
+      "sha512": "bpWbVKW0RpM/XtTwZL7pjhuVqpaB/cHutR7W4YXLIXFMHHXilqzVxpFmyzwoIZVO1xmSdoelbDRBncIA5D24EA==",
+      "type": "package",
+      "path": "Microsoft.AspNet.WebPages/2.0.20710",
+      "files": [
+        "Microsoft.AspNet.WebPages.2.0.20710.nupkg.sha512",
+        "Microsoft.AspNet.WebPages.nuspec",
+        "lib/net40/System.Web.Helpers.dll",
+        "lib/net40/System.Web.Helpers.xml",
+        "lib/net40/System.Web.WebPages.Deployment.dll",
+        "lib/net40/System.Web.WebPages.Deployment.xml",
+        "lib/net40/System.Web.WebPages.Razor.dll",
+        "lib/net40/System.Web.WebPages.Razor.xml",
+        "lib/net40/System.Web.WebPages.dll",
+        "lib/net40/System.Web.WebPages.xml"
+      ]
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "sha512": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "type": "package",
+      "path": "Microsoft.Web.Infrastructure/1.0.0",
+      "files": [
+        "Microsoft.Web.Infrastructure.1.0.0.nupkg.sha512",
+        "Microsoft.Web.Infrastructure.nuspec",
+        "lib/net40/Microsoft.Web.Infrastructure.dll"
+      ]
+    },
+    "Newtonsoft.Json/7.0.1": {
+      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
+      "type": "package",
+      "path": "Newtonsoft.Json/7.0.1",
+      "files": [
+        "Newtonsoft.Json.7.0.1.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "tools/install.ps1"
+      ]
+    },
+    "RequireJsNet/1.0.0": {
+      "type": "project",
+      "path": "../RequireJsNet/project.json",
+      "msbuildProject": "../RequireJsNet/RequireJsNet.xproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "": [],
+    "": [
+      "RequireJsNet >= 1.0.0-*"
+    ],
     ".NETFramework,Version=v4.5.1": []
   },
   "tools": {},

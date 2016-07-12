@@ -41,7 +41,11 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.5.1": [
-      "Newtonsoft.Json >= 7.0.1"
+      "Microsoft.Build.Framework >= 4.0.0",
+      "Microsoft.Build.Utilities.v4.0 >= 4.0.0",
+      "Newtonsoft.Json >= 7.0.1",
+      "System.Xml >= 4.0.0",
+      "System.Xml.Linq >= 4.0.0"
     ]
   },
   "tools": {},

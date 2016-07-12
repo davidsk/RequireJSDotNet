@@ -102,6 +102,13 @@
           "Microsoft.Web.Infrastructure": "1.0.0",
           "Newtonsoft.Json": "7.0.1"
         },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Web.Abstractions",
+          "System.Xml",
+          "System.Xml.Linq",
+          "System.Xml.XmlSerializer"
+        ],
         "compile": {
           "net451/RequireJsNet.dll": {}
         },
@@ -228,6 +235,8 @@
     ".NETFramework,Version=v4.5.1": [
       "EcmaScript.Net >= 1.0.1",
       "Jint >= 2.5.0",
+      "Microsoft.Build.Framework >= 4.0.0",
+      "Microsoft.Build.Utilities.v4.0 >= 4.0.0",
       "YUICompressor.NET >= 2.7.0"
     ]
   },
