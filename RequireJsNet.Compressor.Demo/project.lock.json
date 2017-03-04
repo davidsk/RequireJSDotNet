@@ -61,6 +61,38 @@
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
+      },
+      "RequireJsNet/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "5.2.3",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "frameworkAssemblies": [
+          "System.Web",
+          "System.Xml",
+          "System.Xml.Linq"
+        ],
+        "compile": {
+          "net45/RequireJsNet.dll": {}
+        },
+        "runtime": {
+          "net45/RequireJsNet.dll": {}
+        }
+      },
+      "RequireJsNet.Compressor/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
+        "dependencies": {
+          "RequireJsNet": "1.0.0"
+        },
+        "compile": {
+          "net45/RequireJsNet.Compressor.dll": {}
+        },
+        "runtime": {
+          "net45/RequireJsNet.Compressor.dll": {}
+        }
       }
     },
     ".NETStandard,Version=v1.6": {
@@ -2931,6 +2963,38 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
+        }
+      },
+      "RequireJsNet/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "Microsoft.AspNetCore.Html.Abstractions": "1.0.0",
+          "Microsoft.AspNetCore.Mvc": "1.0.0",
+          "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
+          "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+          "NETStandard.Library": "1.6.0",
+          "Newtonsoft.Json": "9.0.1",
+          "System.Xml.XPath.XDocument": "4.3.0"
+        },
+        "compile": {
+          "netstandard1.6/RequireJsNet.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/RequireJsNet.dll": {}
+        }
+      },
+      "RequireJsNet.Compressor/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "RequireJsNet": "1.0.0"
+        },
+        "compile": {
+          "netstandard1.6/RequireJsNet.Compressor.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/RequireJsNet.Compressor.dll": {}
         }
       }
     }
@@ -8055,26 +8119,24 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "RequireJsNet/1.0.0": {
+      "type": "project",
+      "path": "../RequireJsNet/project.json",
+      "msbuildProject": "../RequireJsNet/RequireJsNet.xproj"
+    },
+    "RequireJsNet.Compressor/1.0.0": {
+      "type": "project",
+      "path": "../RequireJsNet.Compressor/project.json",
+      "msbuildProject": "../RequireJsNet.Compressor/RequireJsNet.Compressor.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "Newtonsoft.Json >= 9.0.1"
+      "RequireJsNet.Compressor >= 1.0.0-*"
     ],
-    ".NETFramework,Version=v4.5": [
-      "Microsoft.AspNet.Mvc >= 5.2.3",
-      "System.Web >= 4.0.0",
-      "System.Xml >= 4.0.0",
-      "System.Xml.Linq >= 4.0.0"
-    ],
-    ".NETStandard,Version=v1.6": [
-      "Microsoft.AspNetCore.Html.Abstractions >= 1.0.0",
-      "Microsoft.AspNetCore.Mvc >= 1.0.0",
-      "Microsoft.AspNetCore.Server.IISIntegration >= 1.0.0",
-      "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
-      "NETStandard.Library >= 1.6.0",
-      "System.Xml.XPath.XDocument >= 4.3.0"
-    ]
+    ".NETFramework,Version=v4.5": [],
+    ".NETStandard,Version=v1.6": []
   },
   "tools": {},
   "projectFileToolGroups": {}

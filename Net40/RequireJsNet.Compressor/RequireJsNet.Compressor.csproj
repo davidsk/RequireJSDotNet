@@ -55,50 +55,126 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\ScriptProcessor.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\AddDepsTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\AddEmptyDepsArrayTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\IdToLowerTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\ShimFileTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Compression\CompressorTaskEngine.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Helpers\FileHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Logging\ILog.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Logging\MsBuildLogAdapter.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Models\ActionType.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Models\Bundle.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Models\FileSpec.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Models\NodeWithChildren.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\RequireCall.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\RequireVisitor.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\ScriptLine.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\VisitorResult.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Models\RequireFile.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\AutoBundleConfigProcessor.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\ConfigProcessor.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\ConfigProcessorFactory.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\SimpleBundleConfigProcessor.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\CompressorTask.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\CssCompressorTask.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\JavaScriptCompressorTask.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\RequireCompressorTask.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\NormalizeDepsTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\ToDefineTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\AddIdentifierTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\IRequireTransformation.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\TransformationCollection.cs" />
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\ScriptProcessor.cs">
+      <Link>AutoDependency\ScriptProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\AddDepsTransformation.cs">
+      <Link>AutoDependency\Transformations\AddDepsTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\AddEmptyDepsArrayTransformation.cs">
+      <Link>AutoDependency\Transformations\AddEmptyDepsArrayTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\IdToLowerTransformation.cs">
+      <Link>AutoDependency\Transformations\IdToLowerTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\ShimFileTransformation.cs">
+      <Link>AutoDependency\Transformations\ShimFileTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Compression\CompressorTaskEngine.cs">
+      <Link>Compression\CompressorTaskEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Helpers\FileHelpers.cs">
+      <Link>Helpers\FileHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Logging\ILog.cs">
+      <Link>Logging\ILog.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Logging\MsBuildLogAdapter.cs">
+      <Link>Logging\MsBuildLogAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Models\ActionType.cs">
+      <Link>Models\ActionType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Models\Bundle.cs">
+      <Link>Models\Bundle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Models\FileSpec.cs">
+      <Link>Models\FileSpec.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Models\NodeWithChildren.cs">
+      <Link>Models\NodeWithChildren.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\RequireCall.cs">
+      <Link>AutoDependency\Parsing\RequireCall.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\RequireVisitor.cs">
+      <Link>AutoDependency\Parsing\RequireVisitor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\ScriptLine.cs">
+      <Link>AutoDependency\Parsing\ScriptLine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Parsing\VisitorResult.cs">
+      <Link>AutoDependency\Parsing\VisitorResult.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Models\RequireFile.cs">
+      <Link>Models\RequireFile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\AutoBundleConfigProcessor.cs">
+      <Link>RequireProcessing\AutoBundleConfigProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\ConfigProcessor.cs">
+      <Link>RequireProcessing\ConfigProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\ConfigProcessorFactory.cs">
+      <Link>RequireProcessing\ConfigProcessorFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\RequireProcessing\SimpleBundleConfigProcessor.cs">
+      <Link>RequireProcessing\SimpleBundleConfigProcessor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\CompressorTask.cs">
+      <Link>Tasks\CompressorTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\CssCompressorTask.cs">
+      <Link>Tasks\CssCompressorTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\JavaScriptCompressorTask.cs">
+      <Link>Tasks\JavaScriptCompressorTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\Tasks\RequireCompressorTask.cs">
+      <Link>Tasks\RequireCompressorTask.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\NormalizeDepsTransformation.cs">
+      <Link>AutoDependency\Transformations\NormalizeDepsTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\ToDefineTransformation.cs">
+      <Link>AutoDependency\Transformations\ToDefineTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\AddIdentifierTransformation.cs">
+      <Link>AutoDependency\Transformations\AddIdentifierTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\IRequireTransformation.cs">
+      <Link>AutoDependency\Transformations\IRequireTransformation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor\AutoDependency\Transformations\TransformationCollection.cs">
+      <Link>AutoDependency\Transformations\TransformationCollection.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\RequireJsNet.Compressor\YuiCompressor.NET.license.txt">
+      <Link>YuiCompressor.NET.license.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\RequireJsNet.Compressor\json1.json" />
-    <None Include="..\..\RequireJsNet.Compressor\packages.config" />
-    <None Include="..\..\RequireJsNet.Compressor\README.md" />
-    <None Include="..\..\RequireJsNet.Compressor\RequireJsNet.Compressor.nuspec" />
-    <None Include="..\..\RequireJsNet.Compressor\RequireJsNet.Compressor.targets" />
+    <None Include="..\..\RequireJsNet.Compressor\json1.json">
+      <Link>json1.json</Link>
+    </None>
+    <None Include="..\..\RequireJsNet.Compressor\packages.config">
+      <Link>packages.config</Link>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="..\..\RequireJsNet.Compressor\README.md">
+      <Link>README.md</Link>
+    </None>
+    <None Include="..\..\RequireJsNet.Compressor\RequireJsNet.Compressor.nuspec">
+      <Link>RequireJsNet.Compressor.nuspec</Link>
+    </None>
+    <None Include="..\..\RequireJsNet.Compressor\RequireJsNet.Compressor.targets">
+      <Link>RequireJsNet.Compressor.targets</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RequireJsNet\RequireJsNet.csproj">

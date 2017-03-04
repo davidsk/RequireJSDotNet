@@ -39,12 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\RequireJsNet.Scripts\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\RequireJsNet.Scripts\Properties\AssemblyInfo.cs"><Link>Properties\AssemblyInfo.cs</Link></Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\RequireJsNet.Scripts\Scripts\i18n.js" />
-    <Content Include="..\..\RequireJsNet.Scripts\Scripts\require.js" />
-    <Content Include="..\..\RequireJsNet.Scripts\Scripts\text.js" />
+    <Content Include="..\..\RequireJsNet.Scripts\Scripts\i18n.js"><Link>Scripts\i18n.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Scripts\Scripts\require.js"><Link>Scripts\require.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Scripts\Scripts\text.js"><Link>Scripts\text.js</Link></Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

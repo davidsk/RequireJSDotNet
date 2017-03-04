@@ -11,13 +11,19 @@ using RequireJsNet.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Encodings.Web;
+#if !NET45
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.Extensions.WebEncoders;
-
+using System.Text.Encodings.Web;
+#else
+using System.Web;
+using System.Web.Mvc;
+#endif
 
 namespace RequireJsNet
 {
@@ -37,7 +43,7 @@ namespace RequireJsNet
         /// The <see cref="IHtmlContent"/>.
         /// </returns>
         public static object RenderRequireJsSetup(
-            this IHtmlHelper html,
+            this HtmlHelper html,
             RequireRendererConfiguration config)
         {
             if (config == null)
@@ -59,18 +65,34 @@ namespace RequireJsNet
 
             var processedConfigs = config.ConfigurationFiles.Select(r =>
             {
-                var env = (IHostingEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
+#if !NET45
 
-                var resultingPath = env.ContentRootFileProvider.GetFileInfo(r.Replace("~/", ""));
-                PathHelpers.VerifyFileExists(resultingPath.PhysicalPath);
-                return resultingPath.PhysicalPath;
+				var env = (IHostingEnvironment)html.ViewContext.HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
+                var resultingPath = env.ContentRootFileProvider.GetFileInfo(r.Replace("~/", "")).PhysicalPath;
+                
+#else
+
+                var resultingPath = html.ViewContext.HttpContext.Server.MapPath(r);
+				
+                #endif
+
+                PathHelpers.VerifyFileExists(resultingPath);
+                return resultingPath;
             }).ToList();
 
             var resultingConfig = GetCachedOverridenConfig(processedConfigs, config, entryPointPath.ToString());
 
             var locale = config.LocaleSelector(html);
 
+#if NET45
+
             var outputConfig = createOutputConfigFrom(resultingConfig, config, locale);
+
+#else
+
+            var outputConfig = createOutputConfigFrom(resultingConfig, config, locale, html);
+
+#endif
 
             var options = createOptionsFrom(html.ViewContext.HttpContext, config, locale);
 
@@ -87,14 +109,42 @@ namespace RequireJsNet
                 "require",
                 (object)new[] { entryPointPath.ToString() }));
 
+#if !NET45
             configBuilder.Render().WriteTo(html.ViewContext.Writer, HtmlEncoder.Default);
             requireRootBuilder.Render().WriteTo(html.ViewContext.Writer, HtmlEncoder.Default);
             requireEntryPointBuilder.Render().WriteTo(html.ViewContext.Writer, HtmlEncoder.Default);
 
             return null;
+#else
+
+            return new MvcHtmlString(
+                configBuilder.Render()
+                + Environment.NewLine
+                + requireRootBuilder.Render()
+                + Environment.NewLine
+                + requireEntryPointBuilder.Render());
+
+#endif
         }
 
-        internal static JsonRequireOptions createOptionsFrom(System.Web.HttpContextBase httpContext, RequireRendererConfiguration config, string locale)
+#if NET45
+
+        internal static JsonRequireOptions createOptionsFrom(HttpContextBase httpContext, RequireRendererConfiguration config, string locale)
+        {
+            var options = new JsonRequireOptions
+            {
+                Locale = locale,
+                PageOptions = RequireJsOptions.GetPageOptions(httpContext.ApplicationInstance.Context),
+                WebsiteOptions = RequireJsOptions.GetGlobalOptions(httpContext.ApplicationInstance.Context)
+            };
+
+            config.ProcessOptions(options);
+            return options;
+        }
+
+#else
+
+        internal static JsonRequireOptions createOptionsFrom(HttpContext httpContext, RequireRendererConfiguration config, string locale)
         {
             var options = new JsonRequireOptions
             {
@@ -107,9 +157,12 @@ namespace RequireJsNet
             return options;
         }
 
-        internal static JsonRequireOutput createOutputConfigFrom(ConfigurationCollection resultingConfig, RequireRendererConfiguration config, string locale)
-        {
+#endif
 
+#if !NET45
+
+        internal static JsonRequireOutput createOutputConfigFrom(ConfigurationCollection resultingConfig, RequireRendererConfiguration config, string locale, HtmlHelper html)
+        {
             var outputConfig = new JsonRequireOutput
             {
                 BaseUrl = config.BaseUrl.Replace("~", html.ViewContext.HttpContext.Request.PathBase),
@@ -134,6 +187,37 @@ namespace RequireJsNet
 
             return outputConfig;
         }
+
+#else
+
+        internal static JsonRequireOutput createOutputConfigFrom(ConfigurationCollection resultingConfig, RequireRendererConfiguration config, string locale)
+        {
+            var outputConfig = new JsonRequireOutput
+            {
+                BaseUrl = config.BaseUrl,
+                Locale = locale,
+                UrlArgs = config.UrlArgs,
+                WaitSeconds = config.WaitSeconds,
+                Paths = resultingConfig.Paths.PathList.ToDictionary(r => r.Key, r => r.Value),
+                Packages = resultingConfig.Packages.PackageList,
+                Shim = resultingConfig.Shim.ShimEntries.ToDictionary(
+                        r => r.For,
+                        r => new JsonRequireDeps
+                                 {
+                                     Dependencies = r.Dependencies.Select(x => x.Dependency).ToList(),
+                                     Exports = r.Exports
+                                 }),
+                Map = resultingConfig.Map.MapElements.ToDictionary(
+                         r => r.For,
+                         r => r.Replacements.ToDictionary(x => x.OldKey, x => x.NewKey))
+            };
+
+            config.ProcessConfig(outputConfig);
+
+            return outputConfig;
+        }
+
+#endif
 
         private static HashStore<ConfigurationCollection> configObjectHash = new HashStore<ConfigurationCollection>();
 
@@ -190,12 +274,21 @@ namespace RequireJsNet
         /// <returns>
         /// The <see cref="MvcHtmlString"/>.
         /// </returns>
+#if !NET45
         public static HtmlString RequireJsEntryPoint(this IHtmlHelper html, string baseUrl, string root)
         {
             var result = RequireJsOptions.ResolverCollection.Resolve(html.ViewContext, baseUrl, root);
 
             return result != null ? new HtmlString(result) : null;
         }
+#else
+        public static MvcHtmlString RequireJsEntryPoint(this HtmlHelper html, string baseUrl, string root)
+        {
+            var result = RequireJsOptions.ResolverCollection.Resolve(html.ViewContext, baseUrl, root);
+
+            return result != null ? new MvcHtmlString(result) : null;
+        }
+#endif
 
         public static Dictionary<string, int> ToJsonDictionary<TEnum>()
         {

@@ -1,0 +1,24 @@
+{
+  "frameworks": {
+    "net45": {
+      "dependencies": {
+        "EcmaScript.Net": "1.0.1",
+        "YUICompressor.NET": "2.7.0"
+      },
+      "frameworkAssemblies": {
+        "Microsoft.Build.Utilities.v4.0": "4.0.0.0"
+      }
+    },
+    "netstandard1.6": {
+      "dependencies": {
+        "Microsoft.Build.Utilities.Core": "15.1.548",
+        "EcmaScript.Net": "1.0.1",
+        "YUICompressor.NET": "2.7.0"
+      }
+    }
+  },
+  "dependencies": {
+    "jint": "2.10.2",
+    "RequireJsNet": "1.0.0-*"
+  }
+}

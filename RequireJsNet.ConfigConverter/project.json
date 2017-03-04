@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net45": {},
+    "netstandard1.6": {}
+  },
+  "dependencies": {
+    "RequireJsNet": "1.0.0-*"
+  }
+}

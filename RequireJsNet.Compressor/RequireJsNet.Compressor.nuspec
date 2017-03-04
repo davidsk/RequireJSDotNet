@@ -22,7 +22,7 @@
   <files>
     <file src="bin\$configuration$\*.dll" target="tools" />
     <file src="bin\$configuration$\*.pdb" target="tools" />
-    <file src="YuiCompressor.NET.license.txt" target="tools" />
-    <file src="RequireJsNet.Compressor.targets" target="build" />
+    <file src="..\..\RequireJsNet.Compressor\YuiCompressor.NET.license.txt" target="tools" />
+    <file src="..\..\RequireJsNet.Compressor\RequireJsNet.Compressor.targets" target="build" />
   </files>
 </package>

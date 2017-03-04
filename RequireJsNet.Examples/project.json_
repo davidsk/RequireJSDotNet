@@ -1,0 +1,13 @@
+{
+  "frameworks": {
+    "net45": {
+      "dependencies": {
+        "Microsoft.AspNet.Mvc": "5.2.3"
+      }
+    },
+    "netstandard1.6": {}
+  },
+"dependencies": {
+"RequireJsNet": "1.0.0-*"
+}
+}

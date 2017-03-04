@@ -10,6 +10,7 @@
     <RootNamespace>RequireJsNet</RootNamespace>
     <AssemblyName>RequireJsNet</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">NET45</DefineConstants>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -20,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -77,65 +78,179 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigCachingPolicy.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigLoader.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigLoaderOptions.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigMerger.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigOverrider.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\IConfigWriter.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\IFileReader.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\JsonReader.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\JsonWriter.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\WriterFactory.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\XmlWriter.cs" />
-    <Compile Include="..\..\RequireJsNet\EntryPointResolver\DefaultEntryPointResolver.cs" />
-    <Compile Include="..\..\RequireJsNet\EntryPointResolver\IEntryPointResolver.cs" />
-    <Compile Include="..\..\RequireJsNet\ExceptionThrowingLogger.cs" />
-    <Compile Include="..\..\RequireJsNet\Helpers\HashStore.cs" />
-    <Compile Include="..\..\RequireJsNet\Helpers\HtmlHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet\Helpers\JavaScriptHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet\Helpers\PathHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet\Helpers\XmlReaderHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet\IRequireJsLogger.cs" />
-    <Compile Include="..\..\RequireJsNet\JavaScriptBuilder.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\AutoBundle.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\AutoBundleItem.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\AutoBundles.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\BundleItem.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\CollectionOverride.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\JsonRequireOutput.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\JsonRequireDeps.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\JsonRequireOptions.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireBundle.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireBundles.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireMap.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireMapElement.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequirePackage.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequirePackages.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireReplacement.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RoutingInfo.cs" />
-    <Compile Include="..\..\RequireJsNet\EntryPointResolver\RequireEntryPointResolverCollection.cs" />
-    <Compile Include="..\..\RequireJsNet\RequireRendererConfiguration.cs" />
-    <Compile Include="..\..\RequireJsNet\Validation\ConfigValidator.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\IConfigReader.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ReaderFactory.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\ConfigType.cs" />
-    <Compile Include="..\..\RequireJsNet\Configuration\XmlReader.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\ConfigurationCollection.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\ShimEntry.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireDependency.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequirePath.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequirePaths.cs" />
-    <Compile Include="..\..\RequireJsNet\Models\RequireShim.cs" />
-    <Compile Include="..\..\RequireJsNet\Properties\AssemblyInfo.cs" />
-    <Compile Include="..\..\RequireJsNet\RequireJsHtmlHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet\RequireJsOptions.cs" />
-    <Compile Include="..\..\RequireJsNet\Validation\ConfigValidationError.cs" />
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigCachingPolicy.cs">
+      <Link>Configuration\ConfigCachingPolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigHelpers.cs">
+      <Link>Configuration\ConfigHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigLoader.cs">
+      <Link>Configuration\ConfigLoader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigLoaderOptions.cs">
+      <Link>Configuration\ConfigLoaderOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigMerger.cs">
+      <Link>Configuration\ConfigMerger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigOverrider.cs">
+      <Link>Configuration\ConfigOverrider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\IConfigWriter.cs">
+      <Link>Configuration\IConfigWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\IFileReader.cs">
+      <Link>Configuration\IFileReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\JsonReader.cs">
+      <Link>Configuration\JsonReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\JsonWriter.cs">
+      <Link>Configuration\JsonWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\WriterFactory.cs">
+      <Link>Configuration\WriterFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\XmlWriter.cs">
+      <Link>Configuration\XmlWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\EntryPointResolver\DefaultEntryPointResolver.cs">
+      <Link>EntryPointResolver\DefaultEntryPointResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\EntryPointResolver\IEntryPointResolver.cs">
+      <Link>EntryPointResolver\IEntryPointResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\ExceptionThrowingLogger.cs">
+      <Link>ExceptionThrowingLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Helpers\HashStore.cs">
+      <Link>Helpers\HashStore.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Helpers\HtmlHelpers.cs">
+      <Link>Helpers\HtmlHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Helpers\JavaScriptHelpers.cs">
+      <Link>Helpers\JavaScriptHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Helpers\PathHelpers.cs">
+      <Link>Helpers\PathHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Helpers\XmlReaderHelpers.cs">
+      <Link>Helpers\XmlReaderHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\IRequireJsLogger.cs">
+      <Link>IRequireJsLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\JavaScriptBuilder.cs">
+      <Link>JavaScriptBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\AutoBundle.cs">
+      <Link>Models\AutoBundle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\AutoBundleItem.cs">
+      <Link>Models\AutoBundleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\AutoBundles.cs">
+      <Link>Models\AutoBundles.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\BundleItem.cs">
+      <Link>Models\BundleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\CollectionOverride.cs">
+      <Link>Models\CollectionOverride.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\JsonRequireOutput.cs">
+      <Link>Models\JsonRequireOutput.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\JsonRequireDeps.cs">
+      <Link>Models\JsonRequireDeps.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\JsonRequireOptions.cs">
+      <Link>Models\JsonRequireOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireBundle.cs">
+      <Link>Models\RequireBundle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireBundles.cs">
+      <Link>Models\RequireBundles.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireMap.cs">
+      <Link>Models\RequireMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireMapElement.cs">
+      <Link>Models\RequireMapElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequirePackage.cs">
+      <Link>Models\RequirePackage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequirePackages.cs">
+      <Link>Models\RequirePackages.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireReplacement.cs">
+      <Link>Models\RequireReplacement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RoutingInfo.cs">
+      <Link>Models\RoutingInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\EntryPointResolver\RequireEntryPointResolverCollection.cs">
+      <Link>EntryPointResolver\RequireEntryPointResolverCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\RequireRendererConfiguration.cs">
+      <Link>RequireRendererConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Validation\ConfigValidator.cs">
+      <Link>Validation\ConfigValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\IConfigReader.cs">
+      <Link>Configuration\IConfigReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ReaderFactory.cs">
+      <Link>Configuration\ReaderFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\ConfigType.cs">
+      <Link>Configuration\ConfigType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Configuration\XmlReader.cs">
+      <Link>Configuration\XmlReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\ConfigurationCollection.cs">
+      <Link>Models\ConfigurationCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\ShimEntry.cs">
+      <Link>Models\ShimEntry.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireDependency.cs">
+      <Link>Models\RequireDependency.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequirePath.cs">
+      <Link>Models\RequirePath.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequirePaths.cs">
+      <Link>Models\RequirePaths.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Models\RequireShim.cs">
+      <Link>Models\RequireShim.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\RequireJsHtmlHelpers.cs">
+      <Link>RequireJsHtmlHelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\RequireJsOptions.cs">
+      <Link>RequireJsOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\RequireJsNet\Validation\ConfigValidationError.cs">
+      <Link>Validation\ConfigValidationError.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\RequireJsNet\packages.config" />
-    <None Include="..\..\RequireJsNet\RequireJsNet.nuspec" />
+    <None Include="..\..\RequireJsNet\packages.config">
+      <Link>packages.config</Link>
+    </None>
+    <None Include="..\..\RequireJsNet\RequireJsNet.nuspec">
+      <Link>RequireJsNet.nuspec</Link>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

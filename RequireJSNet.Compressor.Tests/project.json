@@ -1,0 +1,18 @@
+{
+  "frameworks": {
+    "net45": {
+      "dependencies": {
+        "EcmaScript.Net": "1.0.1"
+      }
+    },
+    "netstandard1.6": {
+      "dependencies": {
+        "Microsoft.Build.Utilities.Core": "15.1.548"
+      }
+    }
+  },
+  "dependencies": {
+    "RequireJsNet": "1.0.0-*",
+    "RequireJsNet.Compressor": "1.0.0-*"
+  }
+}

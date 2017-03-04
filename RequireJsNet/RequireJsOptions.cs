@@ -8,9 +8,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
+#if !NET45
 using Microsoft.AspNetCore.Http;
+#else
+using System.Web;
+#endif
 using RequireJsNet.EntryPointResolver;
-using RequireJsNet.Helpers;
 
 namespace RequireJsNet
 {
@@ -44,10 +48,12 @@ namespace RequireJsNet
             return (Dictionary<string, object>)context.Items[GlobalOptionsKey];
         }
 
+        #if NET45
         public static Dictionary<string, object> GetGlobalOptions()
         {
             return GetGlobalOptions(GetCurrentContext());
         }
+        #endif
 
         public static Dictionary<string, object> GetPageOptions(HttpContext context)
         {
@@ -60,11 +66,11 @@ namespace RequireJsNet
             return (Dictionary<string, object>)context.Items[PageOptionsKey];
         }
 
+#if NET45
         public static Dictionary<string, object> GetPageOptions()
         {
             return GetPageOptions(GetCurrentContext());
         }
-       
 
         public static void Add(string key, object value, RequireJsOptionsScope scope = RequireJsOptionsScope.Page)
         {
@@ -90,7 +96,6 @@ namespace RequireJsNet
                     break;
             }
         }
-
 
         public static void Add(
             string key,
@@ -152,7 +157,7 @@ namespace RequireJsNet
             Clear(RequireJsOptionsScope.Global);
             Clear(RequireJsOptionsScope.Page);
         }
-        
+        #endif
 
         private static void AppendItems(Dictionary<string, object> to, Dictionary<string, object> from)
         {
@@ -168,16 +173,18 @@ namespace RequireJsNet
             }
         }
 
+        #if NET45
+
         private static HttpContext GetCurrentContext()
         {
-            var httpContext = HttpContextHelper.HttpContext;            
-
-            if (httpContext == null)
+            if (HttpContext.Current == null)
             {
                 throw new Exception("HttpContext.Current is null. RequireJsNet needs a HttpContext in order to work.");
             }
 
-            return httpContext;
+            return HttpContext.Current;
         }
+
+        #endif
     }
 }

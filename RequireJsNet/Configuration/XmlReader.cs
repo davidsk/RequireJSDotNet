@@ -8,10 +8,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml.Linq;
-
 using RequireJsNet.Helpers;
 using RequireJsNet.Models;
+
+#if !NET45
+using System.Xml.Linq;
+#else
+using System.Xml;
+using System.Xml.Linq;
+#endif
 
 namespace RequireJsNet.Configuration
 {
@@ -32,6 +37,14 @@ namespace RequireJsNet.Configuration
             get
             {
                 return this.path;
+            }
+        }
+
+        internal ConfigLoaderOptions Options
+        {
+            get
+            {
+                return options;
             }
         }
 

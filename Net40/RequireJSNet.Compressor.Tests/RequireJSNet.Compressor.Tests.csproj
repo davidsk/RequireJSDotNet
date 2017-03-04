@@ -76,57 +76,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Helpers\FileHelpers.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Helpers\TestFileReader.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Helpers\InMemoryLogAdapter.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\TestData\FileSpecs.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\AutoBundleConfigProcessor\ResolvePhysicalPathShould.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\AutoBundleConfigProcessor\ParseConfigsShould.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\CompressorTaskEngine\ExecuteShould.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\RequireVisitor\ProcessRequireCallShould.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\ScriptCompressor\ExpandPathsShould.cs" />
-    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Helpers\FileHelpers.cs"><Link>Helpers\FileHelpers.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Helpers\TestFileReader.cs"><Link>Helpers\TestFileReader.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Helpers\InMemoryLogAdapter.cs"><Link>Helpers\InMemoryLogAdapter.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\TestData\FileSpecs.cs"><Link>TestData\FileSpecs.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\AutoBundleConfigProcessor\ResolvePhysicalPathShould.cs"><Link>Tests\AutoBundleConfigProcessor\ResolvePhysicalPathShould.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\AutoBundleConfigProcessor\ParseConfigsShould.cs"><Link>Tests\AutoBundleConfigProcessor\ParseConfigsShould.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\CompressorTaskEngine\ExecuteShould.cs"><Link>Tests\CompressorTaskEngine\ExecuteShould.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\RequireVisitor\ProcessRequireCallShould.cs"><Link>Tests\RequireVisitor\ProcessRequireCallShould.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Tests\ScriptCompressor\ExpandPathsShould.cs"><Link>Tests\ScriptCompressor\ExpandPathsShould.cs</Link></Compile>
+    <Compile Include="..\..\RequireJsNet.Compressor.Tests\Properties\AssemblyInfo.cs"><Link>Properties\AssemblyInfo.cs</Link></Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\LoadModuleThatExportsDefault.json">
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\LoadModuleThatExportsDefault.json"><Link>TestData\ParseConfigsShould\LoadModuleThatExportsDefault.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\SupportEC6.json">
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\SupportEC6.json"><Link>TestData\ParseConfigsShould\SupportEC6.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ResolvePhysicalPathShould\def.js" />
-    <None Include="..\..\RequireJsNet.Compressor.Tests\packages.config" />
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ExpandPathsShould\.ctor.json" />
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\LoadAComplexDependencyTree.json">
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ResolvePhysicalPathShould\def.js"><Link>TestData\ResolvePhysicalPathShould\def.js</Link></Content>
+    <None Include="..\..\RequireJsNet.Compressor.Tests\packages.config"><Link>packages.config</Link></None>
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ExpandPathsShould\.ctor.json"><Link>TestData\ExpandPathsShould\.ctor.json</Link></EmbeddedResource>
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\LoadAComplexDependencyTree.json"><Link>TestData\ParseConfigsShould\LoadAComplexDependencyTree.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\OtherScripts\excludedfile.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\OtherScripts\e.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\exportdefault.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\a.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\SupportEC6\h.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree\g.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree\f.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\shimmed.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\d.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\c.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\b.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\BundleIncludedDirectory\b.js" />
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\BundleIncludedDirectory\a.js" />
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\BundleIncludedFileWithPath.json">
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\OtherScripts\excludedfile.js"><Link>TestData\ParseConfigsShould\OtherScripts\excludedfile.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\OtherScripts\e.js"><Link>TestData\ParseConfigsShould\OtherScripts\e.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\exportdefault.js"><Link>TestData\ParseConfigsShould\Scripts\exportdefault.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\a.js"><Link>TestData\ParseConfigsShould\Scripts\a.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\SupportEC6\h.js"><Link>TestData\ParseConfigsShould\Scripts\SupportEC6\h.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree\g.js"><Link>TestData\ParseConfigsShould\Scripts\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree\g.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree\f.js"><Link>TestData\ParseConfigsShould\Scripts\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree\f.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\shimmed.js"><Link>TestData\ParseConfigsShould\Scripts\shimmed.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\d.js"><Link>TestData\ParseConfigsShould\Scripts\d.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\c.js"><Link>TestData\ParseConfigsShould\Scripts\c.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\b.js"><Link>TestData\ParseConfigsShould\Scripts\b.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\BundleIncludedDirectory\b.js"><Link>TestData\ParseConfigsShould\Scripts\BundleIncludedDirectory\b.js</Link></Content>
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\Scripts\BundleIncludedDirectory\a.js"><Link>TestData\ParseConfigsShould\Scripts\BundleIncludedDirectory\a.js</Link></Content>
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\BundleIncludedFileWithPath.json"><Link>TestData\ParseConfigsShould\BundleIncludedFileWithPath.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\UseCorrectModuleRelativePathWhenOutsideBasePath.json">
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\UseCorrectModuleRelativePathWhenOutsideBasePath.json"><Link>TestData\ParseConfigsShould\UseCorrectModuleRelativePathWhenOutsideBasePath.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree.json">
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree.json"><Link>TestData\ParseConfigsShould\MakeCorrectRelativePathWhenDependedFileRequiresUpwardsInTree.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ResolvePhysicalPathShould\Scripts\subfolder\abc.js" />
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\BundleIncludedDirectoryWithPath.json">
+    <Content Include="..\..\RequireJsNet.Compressor.Tests\TestData\ResolvePhysicalPathShould\Scripts\subfolder\abc.js"><Link>TestData\ResolvePhysicalPathShould\Scripts\subfolder\abc.js</Link></Content>
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\BundleIncludedDirectoryWithPath.json"><Link>TestData\ParseConfigsShould\BundleIncludedDirectoryWithPath.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\FindShimWithPath.json">
+    <EmbeddedResource Include="..\..\RequireJsNet.Compressor.Tests\TestData\ParseConfigsShould\FindShimWithPath.json"><Link>TestData\ParseConfigsShould\FindShimWithPath.json</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -143,13 +143,12 @@
       <Name>RequireJsNet</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props'))" />
+    <Error Condition="!Exists('..\..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

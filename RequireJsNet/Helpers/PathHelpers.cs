@@ -8,20 +8,30 @@
 using System;
 using System.IO;
 using System.Linq;
+#if !NET45
+#else
+using System.Web;
+#endif
 
 namespace RequireJsNet.Helpers
 {
     internal static class PathHelpers
     {
-        //public static string MapPath(this HttpContextBase context, string path)
-        //{
-        //    if (path.StartsWith("~"))
-        //    {
-        //        path = context.Server.MapPath(path);
-        //    }
+        #if !NET45
+#else
 
-        //    return path;
-        //}
+
+		public static string MapPath(this HttpContextBase context, string path)
+        {
+            if (path.StartsWith("~"))
+            {
+                path = context.Server.MapPath(path);
+            }
+
+            return path;
+        }
+
+#endif
 
         public static void VerifyFileExists(string path)
         {
@@ -84,6 +94,8 @@ namespace RequireJsNet.Helpers
             return name;
         }
 
+#if !NET45
+
         public static string GetPathBaseRelativePath(string filespec, string folder)
         {
             var pathUri = new Uri(filespec);
@@ -103,6 +115,31 @@ namespace RequireJsNet.Helpers
         {
             return GetPathBaseRelativePath(file, folder).ToModuleName();
         }
+
+#else
+
+		public static string GetRelativePath(string filespec, string folder)
+        {
+            var pathUri = new Uri(filespec);
+
+            // Folders must end in a slash
+            if (!folder.EndsWith(Path.DirectorySeparatorChar.ToString()))
+            {
+                folder += Path.DirectorySeparatorChar;
+            }
+
+            var folderUri = new Uri(folder);
+            return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
+        }
+
+
+        public static string GetRequireRelativePath(string folder, string file)
+        {
+            return GetRelativePath(file, folder).ToModuleName();
+        }
+
+
+#endif
 
         // will return the exact fileName for a supplied file path
         // not this only returns for the fileName, the directory part of the path will be the same as the one supplied

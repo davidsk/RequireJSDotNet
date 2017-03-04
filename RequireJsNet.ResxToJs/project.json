@@ -1,0 +1,23 @@
+{
+  "frameworks": {
+    "net45": {
+      "frameworkAssemblies": {
+        "Microsoft.Build.Framework": "4.0.0.0",
+        "Microsoft.Build.Utilities.v4.0": "4.0.0.0",
+        "System.Xml": "4.0.0.0",
+        "System.Xml.Linq": "4.0.0.0",
+        "System.Runtime.InteropServices": "4.0.0",
+        "System.Xml.XDocument": "4.0.0"
+      }
+    },
+    "netstandard1.6": {
+      "dependencies": {
+        "Microsoft.Build.Framework": "15.1.0-preview-000458-02",
+        "Microsoft.Build.Utilities.Core": "15.1.0-preview-000458-02"
+      }
+    }
+  },
+  "dependencies": {
+    "Newtonsoft.Json": "9.0.1"
+  }
+}

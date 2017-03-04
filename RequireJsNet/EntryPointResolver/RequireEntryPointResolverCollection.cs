@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using Microsoft.AspNetCore.Mvc.Rendering;
+
 using RequireJsNet.EntryPointResolver;
+
+#if !NET45
+using Microsoft.AspNetCore.Mvc.Rendering;
+#else
+using System.Web.Mvc;
+#endif
+
 
 namespace RequireJsNet
 {
